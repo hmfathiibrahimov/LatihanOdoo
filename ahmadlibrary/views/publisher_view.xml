@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ahmadlibrary.publisher tree view -->
+    <record id="ahmadlibrary_publisher_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Publisher</field>
+        <field name="model">ahmadlibrary.publisher</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="no_telp"/>
+                <field name="buku_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.publisher form view -->
+    <record id="ahmadlibrary_publisher_view_form" model="ir.ui.view">
+        <field name="name">Form Publisher</field>
+        <field name="model">ahmadlibrary.publisher</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="no_telp"/>
+                        <field name="buku_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.publisher action window -->
+    <record id="ahmadlibrary_publisher_action" model="ir.actions.act_window">
+        <field name="name">Publisher</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ahmadlibrary.publisher</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="publisher_view_menu_act"
+              name="Publisher"
+              parent="ahmadlibrary_buku_menu_categ"
+              action="ahmadlibrary_publisher_action"
+              sequence="30"/>
+
+</odoo>

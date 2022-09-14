@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizzard_peminjamanreport_pdf" model="ir.actions.report">
+        <field name="name">Print Report</field>
+        <field name="model">ahmadlibrary.peminjamanreport</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ahmadlibrary.wizzard_peminjamanreport_pdf_tmp</field>
+        <field name="report_file">ahmadlibrary.wizzard_peminjamanreport_pdf_tmp</field>
+        <field name="binding_model_id" ref="model_ahmadlibrary_peminjamanreport"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

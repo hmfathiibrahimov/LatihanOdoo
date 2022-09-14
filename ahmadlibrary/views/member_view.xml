@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- res.partner inherit tree view -->
+    <record id="res_partner_member_view_tree_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='country_id']" position="after">
+                <field name="level"/>
+            </xpath>
+            
+        </field>
+    </record>
+
+    <!-- res.partner inherit form view -->
+    <record id="res_partner_member_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="level"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- res.partner action window -->
+    <record id="res_partner_member_action" model="ir.actions.act_window">
+        <field name="name">Member</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="member_view_menu_act"
+              name="Member"
+              parent="ahmadlibrary_member_menu_categ"
+              action="res_partner_member_action"
+              sequence="10"/>
+
+</odoo>

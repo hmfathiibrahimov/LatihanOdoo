@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="ahmadlibrary_menu_root"
+              name="Ahmad Library"
+              sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="ahmadlibrary_buku_menu_categ"
+              name="Buku"
+              parent="ahmadlibrary_menu_root"
+              sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="ahmadlibrary_pegawai_menu_categ"
+              name="Pegawai"
+              parent="ahmadlibrary_menu_root"
+              sequence="20"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="ahmadlibrary_member_menu_categ"
+              name="Member"
+              parent="ahmadlibrary_menu_root"
+              sequence="30"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="ahmadlibrary_peminjaman_menu_categ"
+              name="Peminjaman"
+              parent="ahmadlibrary_menu_root"
+              sequence="40"/>
+    
+    <menuitem id="ahmadlibrary_printfaktur_menu_categ"
+              name="Print Faktur"
+              parent="ahmadlibrary_menu_root"
+              sequence="50"/>
+</odoo>

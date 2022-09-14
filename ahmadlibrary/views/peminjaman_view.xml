@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ahmadlibrary.peminjaman tree view -->
+    <record id="ahmadlibrary_peminjaman_view_tree" model="ir.ui.view">
+        <field name="name">List Peminjaman</field>
+        <field name="model">ahmadlibrary.peminjaman</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="nama_peminjam"/>
+                <field name="tgl_peminjaman"/>
+                <field name="tgl_deadline"/>
+                <field name="state"
+                       decoration-muted="state == 'draft'"
+                       decoration-success="state == 'pinjam'"
+                       decoration-info="state == 'done'"
+                       decoration-danger="state == 'cancelled'"
+                       widget="badge"/>
+                <field name="tgl_pengembalian"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.peminjaman form view -->
+    <record id="ahmadlibrary_peminjaman_view_form" model="ir.ui.view">
+        <field name="name">Form Penjualan</field>
+        <field name="model">ahmadlibrary.peminjaman</field>
+        <field name="arch" type="xml">
+            <form string="Form Peminjaman">
+                <header>
+                    <button name="action_pinjam" type="object" string="Dipinjam" class="btn btn-primary" states="draft"/>
+                    <button name="action_done" type="object" string="Dikembalikan" class="btn btn-primary" states="pinjam"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-warning" states="pinjam" confirm="Anda yakin ingin membatalkan Quotation ini?"/>
+                    <button name="action_draft" type="object" string="Kembali ke Draft" class="btn btn-danger" states="cancelled" confirm="Anda yakin ingin memgubah Quotation ini?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,pinjam,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="nama_peminjam" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="tgl_peminjaman" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="tgl_deadline" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="tgl_pengembalian" attrs="{'readonly' : []}"/>
+                    </group>
+                    <group name="daftarbuku" string="Daftar Buku">
+                        <field name="detailpeminjaman_ids"  attrs="{'readonly' : [('state', '!=', 'draft')]}">
+                            <tree editable="bottom">
+                                <field name="buku_id"/>
+                                <field name="qty"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.peminjaman action window -->
+    <record id="ahmadlibrary_peminjaman_action" model="ir.actions.act_window">
+        <field name="name">Peminjaman</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ahmadlibrary.peminjaman</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="peminjaman_view_menu_act"
+              name="Peminjaman"
+              parent="ahmadlibrary_peminjaman_menu_categ"
+              action="ahmadlibrary_peminjaman_action"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="wizzard_peminjamanreport_pdf_tmp">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h1>FAKTUR PEMINJAMAN</h1>
+                        <div class="row">
+                            <div class="col-4">Nama    :</div>
+                            <div class="col-8">
+                                <t t-esc="form['konsumen_id'][1]"/>
+                            </div>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>No Peminjaman</span>
+                                    </th>
+                                    <th>
+                                        <span>Tanggal Peminjaman</span>
+                                    </th>
+                                    <th>
+                                        <span>Tanggal Pengembalian</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="peminjamanxx" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-esc="line['name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['tgl_peminjaman']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['tgl_pengembalian']"/>
+                                    </td>
+                                </tr>
+                            </t>
+
+                        </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

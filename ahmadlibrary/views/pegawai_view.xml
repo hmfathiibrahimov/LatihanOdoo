@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ahmadlibrary.pegawai tree view -->
+    <record id="ahmadlibrary_pegawai_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Pegawai</field>
+        <field name="model">ahmadlibrary.pegawai</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="tempat_lahir"/>
+                <field name="tgl_lahir"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.pegawai form view -->
+    <record id="ahmadlibrary_pegawai_view_form" model="ir.ui.view">
+        <field name="name">Form Pegawai</field>
+        <field name="model">ahmadlibrary.pegawai</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="tempat_lahir"/>
+                        <field name="tgl_lahir"/>
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.pegawai action window -->
+    <record id="ahmadlibrary_pegawai_action" model="ir.actions.act_window">
+        <field name="name">Daftar Pegawai</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ahmadlibrary.pegawai</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="ahmadlibrary_pegawai_menu_act"
+              name="Daftar Pegawai"
+              parent="ahmadlibrary_pegawai_menu_categ"
+              action="ahmadlibrary_pegawai_action"
+              sequence="30"/>
+
+</odoo>

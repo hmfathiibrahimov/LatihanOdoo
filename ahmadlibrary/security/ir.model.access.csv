@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ahmadlibrary_genrebuku,access.ahmadlibrary.genrebuku,model_ahmadlibrary_genrebuku,,1,1,1,1
+access_ahmadlibrary_buku,access.ahmadlibrary.buku,model_ahmadlibrary_buku,,1,1,1,1
+access_ahmadlibrary_pegawai,access.ahmadlibrary.pegawai,model_ahmadlibrary_pegawai,,1,1,1,1
+access_ahmadlibrary_publisher,access.ahmadlibrary.publisher,model_ahmadlibrary_publisher,,1,1,1,1
+access_ahmadlibrary_peminjaman,access.ahmadlibrary.peminjaman,model_ahmadlibrary_peminjaman,,1,1,1,1
+access_ahmadlibrary_detailpeminjaman,access.ahmadlibrary.detailpeminjaman,model_ahmadlibrary_detailpeminjaman,,1,1,1,1
+access_ahmadlibrary_peminjamanreport,access.ahmadlibrary.peminjamanreport,model_ahmadlibrary_peminjamanreport,,1,1,1,1

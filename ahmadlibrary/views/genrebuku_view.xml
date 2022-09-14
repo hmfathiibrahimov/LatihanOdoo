@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ahmadlibrary.genrebuku tree view -->
+    <record id="ahmadlibrary_genrebuku_view_tree" model="ir.ui.view">
+        <field name="name">ahmadlibrary.genrebuku.view.tree</field>
+        <field name="model">ahmadlibrary.genrebuku</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="kode_genre"/>
+                <field name="kode_rak"/>
+                <field name="jml_item"/>
+                <field name="daftar"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.genrebuku form view -->
+    <record id="ahmadlibrary_genrebuku_view_form" model="ir.ui.view">
+        <field name="name">ahmadlibrary.genrebuku.view.form</field>
+        <field name="model">ahmadlibrary.genrebuku</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group name="genre" string="Buku">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="kode_genre"/>
+                    </group>
+                    <group name="rak" string="Letak Buku">
+                        <!-- Add your fields here -->
+                        <field name="kode_rak"/>
+                        <field name="buku_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ahmadlibrary.genrebuku action window -->
+    <record id="ahmadlibrary_genrebuku_action" model="ir.actions.act_window">
+        <field name="name">Genre Buku</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ahmadlibrary.genrebuku</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="ahmadlibrary_genrebuku_menu_act"
+              name="Genre Buku"
+              parent="ahmadlibrary_buku_menu_categ"
+              action="ahmadlibrary_genrebuku_action"
+              sequence="10"/>
+
+</odoo>
